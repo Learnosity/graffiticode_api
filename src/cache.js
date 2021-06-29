@@ -1,5 +1,8 @@
 const cache = null; // = redis.createClient(process.env.REDIS_URL);
-const DEBUG = process.env.DEBUG_GRAFFITICODE === 'true' || false;
+const DEBUG =
+      process.env.DEBUG_GRAFFITICODE === 'true' ||
+      process.env.LOCAL_COMPILES === 'true' ||
+      false;
 
 const localCache = new Map();
 const dontCache = ["L124"];

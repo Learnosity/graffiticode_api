@@ -32,7 +32,7 @@ module.exports = () => {
       res.sendStatus(204);
     } catch(err) {
       console.log("OPTIONS /compile err=" + err);
-      res.statusStatus(500);
+      res.sendStatus(500);
     }
   });
   router.post('/', async (req, res) => {
@@ -45,13 +45,12 @@ module.exports = () => {
       error(item.code, "Invalid code in POST /compile data.");
       let t0 = new Date;
       let val = await compile(auth, item);
-      let refresh = item.options && item.options.refresh;
-      const statusCode = val.error && 400 || 200;
       setMetadataBuilds(val, build);
       res.set("Access-Control-Allow-Origin", "*");
-      res.status(statusCode).json(val);
+      res.json(val);
     } catch(err) {
-      res.status(statusCodeFromErrors(err)).json(messageFromErrors(err));
+      console.log("POST /compile err=" + JSON.stringify(err, null, 2));
+      res.sendStatus(500);
     }
   });
   return router;

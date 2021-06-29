@@ -1,0 +1,10 @@
+{
+  "hosts": {
+  },
+  "ports": {
+  },
+  "protocol": "http",
+  "metadata": {
+    "api": "v0.3.0"
+  }
+}

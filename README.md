@@ -17,7 +17,7 @@ Graffiticode API Gateway
   * `$ export LOCAL_COMPILES=false`
   * `$ make test`
 
-# Deploying
+# Deploying([docs](./docs/deploy.md))
 
 ## Docker Compose
 The graffiticode api application can be run with [Docker Compose](https://docs.docker.com/compose/).
